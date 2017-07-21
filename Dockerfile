@@ -27,7 +27,7 @@ RUN useradd \
     steamsrv
 
 ## Install SteamCMD Centos 7
-USER streamsrv
+USER steamsrv
 RUN wget -O /home/steamsrv/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz  &&\
     tar -xvzf /home/steamsrv/steamcmd_linux.tar.gz    &&\
     mkdir /insurgency
@@ -44,7 +44,7 @@ RUN firewall-cmd --zone=public --add-port=$APP_SERVER_PORT/tcp --permanent  &&\
 expose ${APP_SERVER_PORT}/udp
 expose ${APP_SERVER_PORT}
 
-USER streamsrv
+USER steamsrv
 
 RUN if ($APP_SERVER_CONFIG);                                \
     then server.cfg /insurgency/insurgency/cfg/server.cfg;  \
