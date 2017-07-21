@@ -14,4 +14,4 @@ ADD server.cfg /home/steamsrv/server.cfg
 expose ${APP_SERVER_PORT}/udp
 expose ${APP_SERVER_PORT}
 
-cmd /scripts/StartServer
+cmd /scripts/InstallAppID
