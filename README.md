@@ -1,7 +1,7 @@
 # Insurgency Dedicated Server
 
 The follwing docker image allows for running a Insurgency dedicated server
-It is based on gameservers/insurgency and modified according to [official Insurgency Linux server hosting guide](http://steamcommunity.com/sharedfiles/filedetails/?id=675771712)
+It is based on [official Insurgency Linux server hosting guide](http://steamcommunity.com/sharedfiles/filedetails/?id=675771712)
 
 Container Runtime Environment Variables:
 
