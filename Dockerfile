@@ -46,8 +46,8 @@ expose ${APP_SERVER_PORT}
 
 USER streamsrv
 
-RUN if ($APP_SERVER_CONFIG); \
-    then server.cfg /insurgency/insurgency/cfg/server.cfg;
+RUN if ($APP_SERVER_CONFIG);                                \
+    then server.cfg /insurgency/insurgency/cfg/server.cfg;  \
     else cp /insurgency/insurgency/cfg/server.cfg.example /insurgency/insurgency/cfg/server.cfg
 
 RUN echo export LD_LIBRARY_PATH=/insurgency:/insurgency/bin > /insurgency/insurgency_start.sh &&\
