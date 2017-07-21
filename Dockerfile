@@ -14,7 +14,7 @@ expose ${APP_SERVER_PORT}/udp
 expose ${APP_SERVER_PORT}
 
 ## Packge Install CentOS 7:
-RUN yum -y update && -y install -y \
+RUN yum -y update && yum install -y \
     wget        \
     glibc.i686  \
     libgcc_s.so.1
