@@ -7,6 +7,7 @@ ENV APP_SERVER_PORT 27018
 ENV APP_SERVER_MAXPLAYERS 24
 ENV APP_SERVER_MAP market_coop
 ENV APP_SERVER_NAME [CN]VEDACAT
+ENV APP_SERVER_CONFI server.config
 
 expose ${APP_SERVER_PORT}/udp
 expose ${APP_SERVER_PORT}
@@ -44,9 +45,10 @@ EXPOSE ${APP_SERVER_PORT}
 USER steamsrv
 
 COPY $APP_SERVER_CONFIG /home/steamsrv/insurgency/insurgency/cfg/server.cfg
-RUN if ($APP_SERVER_CONFIG);                                \
-    then echo 'copy from your config file';  \
-    else cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
+# COPY /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
+# RUN if ($APP_SERVER_CONFIG);                                \
+#    then echo 'copy from your config file';  \
+#    else cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
 
 RUN echo export LD_LIBRARY_PATH=/home/steamsrv/insurgency:/home/steamsrv/insurgency/bin > /home/steamsrv/insurgency/insurgency_start.sh &&\
     echo /home/steamsrv/insurgency/srcds_linux -console -port $APP_SERVER_PORT +map market_coop +maxplayers 8 >> /home/steamsrv/insurgency/insurgency_start.sh &&\
