@@ -19,10 +19,11 @@ RUN yum -y update && yum install -y \
 
 ## Create user for Steam server hosting
 RUN useradd \
-    -d /home/steamsrv   \
+    -d /home/steamsrv   \   
     -m                  \
     -s /bin/bash        \
-    steamsrv
+    steamsrv            &&\
+    chown steamsrv:user /home/steamsrv
 
 ## Install SteamCMD Centos 7
 USER steamsrv
