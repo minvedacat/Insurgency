@@ -30,7 +30,7 @@ WORKDIR /home/steamsrv
 RUN wget -O /home/steamsrv/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz  &&\
     tar -xvzf /home/steamsrv/steamcmd_linux.tar.gz    &&\
     mkdir /home/steamsrv/insurgency
-RUN /home/steamsrv/steamcmd.sh +login anonymous +force_install_dir "/home/steamsrc/insurgency" +app_update 237410 +quit
+RUN /home/steamsrv/steamcmd.sh +login anonymous +force_install_dir "/home/steamsrv/insurgency" +app_update 237410 +quit
 
 ## Open Ports on server firewall
 USER root
@@ -44,9 +44,9 @@ expose ${APP_SERVER_PORT}
 USER steamsrv
 
 RUN if ($APP_SERVER_CONFIG);                                \
-    then server.cfg /home/steamsrc/insurgency/insurgency/cfg/server.cfg;  \
-    else cp /home/steamsrc/insurgency/insurgency/cfg/server.cfg.example /home/steamsrc/insurgency/insurgency/cfg/server.cfg
+    then server.cfg /home/steamsrv/insurgency/insurgency/cfg/server.cfg;  \
+    else cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
 
-RUN echo export LD_LIBRARY_PATH=/home/steamsrc/insurgency:/home/steamsrc/insurgency/bin > /home/steamsrc/insurgency/insurgency_start.sh &&\
-    echo /home/steamsrc/insurgency/srcds_linux -console -port $APP_SERVER_PORT +map market_coop +maxplayers 8 >> /home/steamsrc/insurgency/insurgency_start.sh &&\
-    sh /home/steamsrc/insurgency/insurgency_start.sh
+RUN echo export LD_LIBRARY_PATH=/home/steamsrv/insurgency:/home/steamsrv/insurgency/bin > /home/steamsrv/insurgency/insurgency_start.sh &&\
+    echo /home/steamsrv/insurgency/srcds_linux -console -port $APP_SERVER_PORT +map market_coop +maxplayers 8 >> /home/steamsrv/insurgency/insurgency_start.sh &&\
+    sh /home/steamsrv/insurgency/insurgency_start.sh
