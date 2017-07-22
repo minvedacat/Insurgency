@@ -15,8 +15,7 @@ expose ${APP_SERVER_PORT}
 RUN yum -y update && yum install -y \
     wget            \
     glibc.i686      \
-    libgcc_s.so.1   \
-    firewalld
+    libgcc_s.so.1
 
 ## Create user for Steam server hosting
 RUN useradd \
@@ -33,14 +32,14 @@ RUN wget -O /home/steamsrv/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net
     mkdir /home/steamsrv/insurgency
 RUN /home/steamsrv/steamcmd.sh +login anonymous +force_install_dir "/home/steamsrv/insurgency" +app_update 237410 +quit
 
-## Open Ports on server firewall
+## Open Ports on server
 USER root
-RUN firewall-cmd --zone=public --add-port=$APP_SERVER_PORT/tcp --permanent  &&\
-    firewall-cmd --zone=public --add-port=$APP_SERVER_PORT/tcp --permanent  &&\
-    firewall-cmd --reload
+# RUN firewall-cmd --zone=public --add-port=$APP_SERVER_PORT/tcp --permanent  &&\
+#     firewall-cmd --zone=public --add-port=$APP_SERVER_PORT/tcp --permanent  &&\
+#     firewall-cmd --reload
 
-expose ${APP_SERVER_PORT}/udp
-expose ${APP_SERVER_PORT}
+EXPOSE ${APP_SERVER_PORT}/udp
+EXPOSE ${APP_SERVER_PORT}
 
 USER steamsrv
 
