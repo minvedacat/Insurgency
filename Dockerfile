@@ -29,7 +29,7 @@ USER steamsrv
 WORKDIR /home/steamsrv
 RUN wget -O /home/steamsrv/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz  &&\
     tar -xvzf /home/steamsrv/steamcmd_linux.tar.gz    &&\
-    mkdir /home/steamsrc/insurgency
+    mkdir /home/steamsrv/insurgency
 RUN /home/steamsrv/steamcmd.sh +login anonymous +force_install_dir "/home/steamsrc/insurgency" +app_update 237410 +quit
 
 ## Open Ports on server firewall
