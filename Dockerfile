@@ -44,7 +44,7 @@ EXPOSE ${APP_SERVER_PORT}
 USER steamsrv
 
 RUN if ($APP_SERVER_CONFIG);                                \
-    then server.cfg /home/steamsrv/insurgency/insurgency/cfg/server.cfg;  \
+    then cp server.cfg /home/steamsrv/insurgency/insurgency/cfg/server.cfg;  \
     else cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
 
 RUN echo export LD_LIBRARY_PATH=/home/steamsrv/insurgency:/home/steamsrv/insurgency/bin > /home/steamsrv/insurgency/insurgency_start.sh &&\
