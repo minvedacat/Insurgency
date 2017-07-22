@@ -8,8 +8,6 @@ ENV APP_SERVER_MAXPLAYERS 24
 ENV APP_SERVER_MAP market_coop
 ENV APP_SERVER_NAME [CN]VEDACAT
 
-ADD server.cfg /home/steamsrv/server.cfg
-
 expose ${APP_SERVER_PORT}/udp
 expose ${APP_SERVER_PORT}
 
@@ -30,10 +28,10 @@ RUN useradd \
 USER steamsrv
 RUN wget -O /home/steamsrv/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz  &&\
     tar -xvzf /home/steamsrv/steamcmd_linux.tar.gz    &&\
-    mkdir /insurgency
+    mkdir /opt/insurgency
 
 WORKDIR /home/steamsrv
-RUN /home/steamsrv/steamcmd.sh +login anonymous +force_install_dir "/insurgency" +app_update 237410 +quit
+RUN /home/steamsrv/steamcmd.sh +login anonymous +force_install_dir "/opt/insurgency" +app_update 237410 +quit
 
 ## Open Ports on server firewall
 USER root
