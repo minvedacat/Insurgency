@@ -44,8 +44,8 @@ EXPOSE ${APP_SERVER_PORT}
 
 USER steamsrv
 
-COPY $APP_SERVER_CONFIG /home/steamsrv/insurgency/insurgency/cfg/server.cfg
-# COPY /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
+# COPY $APP_SERVER_CONFIG /home/steamsrv/insurgency/insurgency/cfg/server.cfg
+COPY /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
 # RUN if ($APP_SERVER_CONFIG);                                \
 #    then echo 'copy from your config file';  \
 #    else cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
