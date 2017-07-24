@@ -51,5 +51,6 @@ RUN cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsr
 #    else cp /home/steamsrv/insurgency/insurgency/cfg/server.cfg.example /home/steamsrv/insurgency/insurgency/cfg/server.cfg
 
 RUN echo export LD_LIBRARY_PATH=/home/steamsrv/insurgency:/home/steamsrv/insurgency/bin > /home/steamsrv/insurgency/insurgency_start.sh &&\
-    echo /home/steamsrv/insurgency/srcds_linux -console -port $APP_SERVER_PORT +map market_coop +maxplayers 8 >> /home/steamsrv/insurgency/insurgency_start.sh &&\
-    sh /home/steamsrv/insurgency/insurgency_start.sh
+    echo /home/steamsrv/insurgency/srcds_linux -console -port $APP_SERVER_PORT +map market_coop +maxplayers 8 >> /home/steamsrv/insurgency/insurgency_start.sh
+    
+CMD sh /home/steamsrv/insurgency/insurgency_start.sh
